@@ -19,7 +19,7 @@ export default function Home() {
     <div className="bg-white h-1 opacity-10"></div>
 
     <div className="text-white container mx-auto pb-14">
-      <h1 className="text-2xl font-bold text-center my-14">Your Fans can buy you a Chai</h1>
+      <h1 className="text-3xl font-bold text-center my-7">Your Fans can buy you a Chai</h1>
     
       <div className="flex gap-5 justify-around">
 
@@ -46,29 +46,10 @@ export default function Home() {
  <div className="bg-white h-1 opacity-10"></div>
 
 
-     <div className="text-white container mx-auto pb-14">
-      <h1 className="text-2xl font-bold text-center my-14">Learn more about us</h1>
+     <div className="text-white container mx-auto pb-14 flex flex-col items-center justify-center">
+      <h1 className="text-3xl font-bold text-center my-7">Learn more about us</h1>
     
-      <div className="flex gap-5 justify-around">
-
-        <div className="item space-y-3 flex flex-col items-center justify-center">
-          <img className="bg-slate-200 rounded-full p-2" width={88} src="/worker.gif" alt="man" />
-          <p className="font-bold">Fans want to help</p>
-          <p className="text-center">Your fans are available for you to help you</p>
-        </div>
-
-        <div className="item space-y-3 flex flex-col items-center justify-center">
-          <img className="bg-slate-200 rounded-full p-2" width={88} src="/dollar.gif" alt="man" />
-          <p className="font-bold">Fans want to help</p>
-          <p className="text-center">Your fans are available for you to help you</p>
-        </div>
-
-        <div className="item space-y-3 flex flex-col items-center justify-center">
-          <img className="bg-slate-200 rounded-full p-2" width={88} src="/profit.gif" alt="man" />
-          <p className="font-bold">Fans want to help</p>
-          <p className="text-center">Your fans are available for you to help you</p>
-        </div>
-      </div>
+     <iframe width="560" height="315" src="https://www.youtube.com/embed/7OojpOilB4s?si=fPlrQgLRTV32BA2h" title="YouTube video player" framebprder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
     </div>
     </>
     
