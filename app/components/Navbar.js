@@ -4,10 +4,12 @@ const Navbar = () => {
   return (
     <nav className='bg-gray-900 text-white flex justify-between px-4 h-16 items-center'>
         <div className="logo font-bold text-lg flex gap-3 items-center justify-center">
-          Get Me Chai
           <span>
-            <img width={30} src="/tea.gif" alt="tea" />
+            <img width={44} src="/tea.png" alt="tea" />
           </span>
+          
+          Get Me Chai
+          
           </div>
         <ul className='flex justify-between gap-4'>
             <li>Home</li>
