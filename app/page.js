@@ -4,8 +4,8 @@ export default function Home() {
   return (
     <>
     <div className="flex flex-col justify-center items-center gap-4 text-white h-[44vh]">
-      <div className="font-bold text-5xl flex gap-3 justify-center items-center">
-        Buy me a Chai <span><img src="/tea.gif" width={88} alt="tea" /></span>
+      <div className="font-bold text-5xl flex gap-4 justify-center items-center">
+        Buy me a Chai <span><img src="/green.gif" width={150} alt="tea" /></span>
       </div>
       <p>
         A crowdfunding platform for creators. Get funded by your fans and followers. Start Now!
@@ -18,12 +18,27 @@ export default function Home() {
 
     <div className="bg-white h-1 opacity-10"></div>
 
-    <div className="text-white">
-      <h1>Your Fans can buy you a Chai</h1>
-      <div className="flex gap-5">
-        <div className="item bg-slate-200 rounded-full p-7 text-black">
-          <img width={88} src="/man.gif" alt="man" />
-          <p>Fund yourself</p>
+    <div className="text-white container mx-auto">
+      <h1 className="text-2xl font-bold text-center my-14">Your Fans can buy you a Chai</h1>
+    
+      <div className="flex gap-5 justify-around">
+
+        <div className="item space-y-3 flex flex-col items-center justify-center">
+          <img className="bg-slate-200 rounded-full p-2" width={88} src="/worker.gif" alt="man" />
+          <p className="font-bold">Fans want to help</p>
+          <p className="w-1/2 text-center">Your fans are available for you to help you</p>
+        </div>
+
+        <div className="item space-y-3 flex flex-col items-center justify-center">
+          <img className="bg-slate-200 rounded-full p-2" width={88} src="/dollar.gif" alt="man" />
+          <p className="font-bold">Fans want to help</p>
+          <p className="w-1/2 text-center">Your fans are available for you to help you</p>
+        </div>
+
+        <div className="item space-y-3 flex flex-col items-center justify-center">
+          <img className="bg-slate-200 rounded-full p-2" width={88} src="/profit.gif" alt="man" />
+          <p className="font-bold">Fans want to help</p>
+          <p className="w-1/2 text-center">Your fans are available for you to help you</p>
         </div>
       </div>
     </div>
