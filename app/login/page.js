@@ -1,5 +1,6 @@
+"use client"
 import React from 'react'
-
+import { useSession, signIn, signOut } from "next-auth/react"
 const page = () => {
   return (
     <div className='text-white py-14 container mx-auto'>
