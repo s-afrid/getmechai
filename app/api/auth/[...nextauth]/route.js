@@ -29,7 +29,7 @@ export const authoptions = NextAuth({
     //   server: process.env.MAIL_SERVER,
     //   from: 'NextAuth.js <no-reply@example.com>'
     // }),
-  ]
+  ],
 })
 
 export { authoptions as GET, authoptions as POST }
