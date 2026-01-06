@@ -1,7 +1,7 @@
 "use client"
 import React, {useState} from 'react'
 import { useSession, signIn, signOut } from "next-auth/react"
-import Link from 'next/link'
+import Link from 'next/link';
 
 const Navbar = () => {
   const { data: session } = useSession();
@@ -22,9 +22,7 @@ const Navbar = () => {
           <button onClick={()=>{
             setshowdropdown(!showdropdown);
           }}
-          onBlur={()=>{
-            setshowdropdown(false)
-          }}
+          
            id="dropdownDefaultButton" data-dropdown-toggle="dropdown" className="text-white cursor-pointer mx-2 bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-full text-sm px-4 py-2.5 text-center inline-flex items-center" type="button">
             Welcome {session.user.name}
             <svg className="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
