@@ -23,6 +23,32 @@ let username = getparams.username
       <div className='text-slate-300'>
         16,004 members • 758 posts
       </div>
+
+      <div className="payment flex gap-3 w-[80%] mt-11">
+      <div className="supporters w-1/2 bg-slate-900 rounded-lg p-10">
+        {/* Show list of all the supports as a leaderboard */}
+        <h2 className='text-2xl font-bold mb-5'>Supporters</h2>
+        <ul className='mx-5'>
+          <li className='mb-2'>Shubham donated $30 with a message ""</li>
+          <li className='mb-2'>Shubham donated $30 with a message ""</li>
+          <li className='mb-2'>Shubham donated $30 with a message ""</li>
+          <li className='mb-2'>Shubham donated $30 with a message ""</li>
+          <li className='mb-2'>Shubham donated $30 with a message ""</li>
+          <li className='mb-2'>Shubham donated $30 with a message ""</li>
+          <li className='mb-2'>Shubham donated $30 with a message ""</li>
+          <li className='mb-2'>Shubham donated $30 with a message ""</li>
+          <li className='mb-2'>Shubham donated $30 with a message ""</li>
+          <li className='mb-2'>Shubham donated $30 with a message ""</li>
+          <li className='mb-2'>Shubham donated $30 with a message ""</li>
+          <li className='mb-2'>Shubham donated $30 with a message ""</li>
+          <li className='mb-2'>Shubham donated $30 with a message ""</li>
+          <li className='mb-2'>Shubham donated $30 with a message ""</li>
+        </ul>
+      </div>
+      <div className="makePayment w-1/2 bg-slate-900 rounded-lg p-10">
+
+      </div>
+    </div>
     </div>
     </>
   )

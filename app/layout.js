@@ -11,10 +11,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
+      <body className="bg-gradient-to-r from-[#243B55] to-[#141E30] text-white">
         <SessionWrapper>
         <Navbar />
-        <div className="min-h-[87vh] bg-gradient-to-r from-[#243B55] to-[#141E30] text-white">
+        <div className="min-h-screen bg-gradient-to-r from-[#243B55] to-[#141E30] text-white">
         {children}
         </div>
         <Footer />
