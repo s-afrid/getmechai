@@ -30,6 +30,7 @@ export const authoptions = NextAuth({
     //   from: 'NextAuth.js <no-reply@example.com>'
     // }),
   ],
+  secret: process.env.AUTH_SECRET,
 })
 
 export { authoptions as GET, authoptions as POST }
