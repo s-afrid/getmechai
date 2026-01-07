@@ -13,8 +13,16 @@ let username = getparams.username
       </div>
     </div>
 
-    <div className="info flex items-center justify-center my-24">
+    <div className="info flex items-center justify-center my-24 flex-col gap-2">
+      <div className='font-bold text-lg'>
       @{username}
+      </div>
+      <div className='text-slate-300'>
+        Creating Guitar lessons, YouTube videos, music, and more!
+      </div>
+      <div className='text-slate-300'>
+        16,004 members • 758 posts
+      </div>
     </div>
     </>
   )
