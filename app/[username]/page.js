@@ -28,25 +28,50 @@ let username = getparams.username
       <div className="supporters w-1/2 bg-slate-900 rounded-lg p-10">
         {/* Show list of all the supports as a leaderboard */}
         <h2 className='text-2xl font-bold mb-5'>Supporters</h2>
-        <ul className='mx-5'>
-          <li className='mb-2'>Shubham donated $30 with a message ""</li>
-          <li className='mb-2'>Shubham donated $30 with a message ""</li>
-          <li className='mb-2'>Shubham donated $30 with a message ""</li>
-          <li className='mb-2'>Shubham donated $30 with a message ""</li>
-          <li className='mb-2'>Shubham donated $30 with a message ""</li>
-          <li className='mb-2'>Shubham donated $30 with a message ""</li>
-          <li className='mb-2'>Shubham donated $30 with a message ""</li>
-          <li className='mb-2'>Shubham donated $30 with a message ""</li>
-          <li className='mb-2'>Shubham donated $30 with a message ""</li>
-          <li className='mb-2'>Shubham donated $30 with a message ""</li>
-          <li className='mb-2'>Shubham donated $30 with a message ""</li>
-          <li className='mb-2'>Shubham donated $30 with a message ""</li>
-          <li className='mb-2'>Shubham donated $30 with a message ""</li>
-          <li className='mb-2'>Shubham donated $30 with a message ""</li>
+        <ul className='mx-5 text-lg'>
+          <li className='mb-2 flex gap-2 items-center'>
+            <img width={33} height={33} src="/avatar.gif" alt="avatar" />
+            <span>
+            Shubham donated <span className='font-bold'>$30</span> with a message "I support you"
+            </span>
+          </li>
+          <li className='mb-2 flex gap-2 items-center'>
+            <img width={33} height={33} src="/avatar.gif" alt="avatar" />
+            <span>
+            Shubham donated <span className='font-bold'>$30</span> with a message "I support you"
+            </span>
+          </li>
+          <li className='mb-2 flex gap-2 items-center'>
+            <img width={33} height={33} src="/avatar.gif" alt="avatar" />
+            <span>
+            Shubham donated <span className='font-bold'>$30</span> with a message "I support you"
+            </span>
+          </li>
+          <li className='mb-2 flex gap-2 items-center'>
+            <img width={33} height={33} src="/avatar.gif" alt="avatar" />
+            <span>
+            Shubham donated <span className='font-bold'>$30</span> with a message "I support you"
+            </span>
+          </li>
+          
         </ul>
       </div>
-      <div className="makePayment w-1/2 bg-slate-900 rounded-lg p-10">
-
+      <div className="makePayment w-1/2 bg-slate-900 rounded-lg p-10 flex flex-col gap-2">
+        <h2 className='text-2xl font-bold mb-5'>Make a Payment</h2>
+        <div className='flex flex-col gap-2'>
+          <input type="text" className='w-full p-3 rounded-lg bg-slate-800' placeholder='Enter Name' />
+          <input type="text" className='w-full p-3 rounded-lg bg-slate-800' placeholder='Enter Message' />
+        </div>
+        <div className='flex gap-2'>
+          <input type="text" className='w-1/2 p-3 rounded-lg bg-slate-800' placeholder='Enter Amount' />
+          <button type="button" class="text-white bg-gradient-to-br from-purple-800 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center leading-5">Pay</button>
+        </div>
+        {/* Or choose from these amounts */}
+        <div className='flex gap-2 mt-5'>
+          <button type="button" class="text-white bg-gradient-to-br from-purple-500 to-blue-300 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center leading-5">Pay $10</button>
+          <button type="button" class="text-white bg-gradient-to-br from-purple-500 to-blue-300 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center leading-5">Pay $20</button>
+          <button type="button" class="text-white bg-gradient-to-br from-purple-500 to-blue-300 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center leading-5">Pay $20</button>
+        </div>
       </div>
     </div>
     </div>
