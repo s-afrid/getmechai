@@ -4,6 +4,7 @@ import NextAuth from 'next-auth'
 import GoogleProvider from 'next-auth/providers/google'
 // import EmailProvider from 'next-auth/providers/email'
 import GitHubProvider from 'next-auth/providers/github'
+import mongoose from 'mongoose'
 
 export const authoptions = NextAuth({
   providers: [
@@ -36,7 +37,9 @@ export const authoptions = NextAuth({
   async signIn({ user, account, profile, email, credentials }) {
     if(account.provider == "github") {
       // connect to database
-      
+     
+     // check user existance in database
+    
     }
   }
 }
