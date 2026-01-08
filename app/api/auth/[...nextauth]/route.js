@@ -31,6 +31,15 @@ export const authoptions = NextAuth({
     // }),
   ],
   secret: process.env.AUTH_SECRET,
+
+  callbacks: {
+  async signIn({ user, account, profile, email, credentials }) {
+    if(account.provider == "github") {
+      // connect to database
+      
+    }
+  }
+}
 })
 
 export { authoptions as GET, authoptions as POST }
