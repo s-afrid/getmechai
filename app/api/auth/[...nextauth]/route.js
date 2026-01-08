@@ -39,8 +39,17 @@ export const authoptions = NextAuth({
   async signIn({ user, account, profile, email, credentials }) {
     if(account.provider == "github") {
       // connect to database
-     const client =  await mongoose.connect()
+     const client =  await mongoose.connect(process.env.MONGO_URI)
      // check user existance in database
+     const currentUser = User.findOne({emai: email})
+     if(!currentUser){
+      const newUser = new User({
+        email: email,
+        username: email.split('@')[0],
+      })
+      await newUser.save()
+      user.name = newUser.username
+     }
     }
     return true
   }
