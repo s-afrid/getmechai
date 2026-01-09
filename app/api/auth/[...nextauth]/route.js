@@ -44,20 +44,20 @@ export const authoptions = NextAuth({
     await connectDB();
      // check user existance in database
      const currentUser = await User.findOne({emai: email})
-     console.log(currentUser)
+     
 
      if(!currentUser){
+      // create a new user
       const newUser = new User({
         email: user.email,
         username: user.email.split('@')[0],
       })
+      // save new user
       await newUser.save()
       user.name = newUser.username
-      console.log(newUser)
+      
      }
-     else {
-      user.name = currentUser.username
-     }
+     
      return true;
       } catch (error) {
         console.log(`Error message: ${error.message}`);
