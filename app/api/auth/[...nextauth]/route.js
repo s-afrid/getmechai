@@ -50,6 +50,7 @@ export const authoptions = NextAuth({
       // create a new user
       const newUser = new User({
         email: user.email,
+        name: user.name,
         username: user.email.split('@')[0],
       })
       // save new user
@@ -72,7 +73,7 @@ export const authoptions = NextAuth({
     await connectDB();
     const dbUser = await User.findOne({email: session.user.email});
     if(dbUser){
-      session.user.name = dbUser.username;
+      session.user.name = dbUser.name;
     }
     return session;
   },
