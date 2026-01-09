@@ -52,7 +52,7 @@ const Navbar = () => {
           </li>
           <li>
             <Link 
-              href={`/${session.user.name}`} 
+              href={`/${session.user.username}`} 
               onClick={() => setshowdropdown(false)}
               className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
             >

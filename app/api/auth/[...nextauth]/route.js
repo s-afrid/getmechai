@@ -55,8 +55,6 @@ export const authoptions = NextAuth({
       })
       // save new user
       await newUser.save()
-      user.name = newUser.username
-      
      }
      
      return true;
@@ -74,6 +72,7 @@ export const authoptions = NextAuth({
     const dbUser = await User.findOne({email: session.user.email});
     if(dbUser){
       session.user.name = dbUser.name;
+      session.user.username = dbUser.username;
     }
     return session;
   },
