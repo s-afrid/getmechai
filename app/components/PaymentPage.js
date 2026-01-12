@@ -3,6 +3,34 @@ import React from 'react'
 import Script from 'next/script'
 
 const PaymentPage = ({username}) => {
+
+    const pay = (amount, orderId)=> {
+        var options = {
+             "key": process.env.RAZORPAY_ID, // Enter the Key ID generated from the Dashboard
+    "amount": amount, // Amount is in currency subunits. 
+    "currency": "INR",
+    "name": "Get Me Chai", //your business name
+    "description": "Test Transaction",
+    "image": `${process.env.URL}/tea.png`,
+    "order_id": orderId, // This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+    "callback_url": `${process.env.URL}/api/razorpat`,
+    "prefill": { //We recommend using the prefill parameter to auto-fill customer's contact information especially their phone number
+        "name": "Gaurav Kumar", //your customer's name
+        "email": "gaurav.kumar@example.com",
+        "contact": "+919876543210" //Provide the customer's phone number for better conversion rates 
+    },
+    "notes": {
+        "address": "Razorpay Corporate Office"
+    },
+    "theme": {
+        "color": "#3399cc"
+    }
+        };
+
+    var rzp1 = new Razorpay(options);
+    rzp1.open();
+    
+    }
   return (
     <>
       <Script src="https://checkout.razorpay.com/v1/checkout.js"></Script>
