@@ -1,12 +1,26 @@
 "use client"
-import React from 'react'
+import React, { useState } from 'react'
 import Script from 'next/script'
+import { useSession } from 'next-auth/react'
+import { initiate } from '../actions/useractions'
 
 const PaymentPage = ({username}) => {
 
-    const pay = (amount, orderId)=> {
+  const { data: session } = useSession();
+
+  let [paymentform, setPaymentform] = useState({})
+
+    const handlechange = (e)=>{
+      setPaymentform({...paymentform, [e.target.name]: e.target.value})
+    }
+
+  const pay = async (amount)=> {
+      // Get payment ID
+      
+      let a = await initiate(amount, session?.user.name, paymentform)
+      let orderId = a.id
         var options = {
-             "key": process.env.RAZORPAY_ID, // Enter the Key ID generated from the Dashboard
+      "key": process.env.RAZORPAY_ID, // Enter the Key ID generated from the Dashboard
     "amount": amount, // Amount is in currency subunits. 
     "currency": "INR",
     "name": "Get Me Chai", //your business name
@@ -89,18 +103,18 @@ const PaymentPage = ({username}) => {
       <div className="makePayment w-1/2 bg-slate-900 rounded-lg p-10 flex flex-col gap-2">
         <h2 className='text-2xl font-bold mb-5'>Make a Payment</h2>
         <div className='flex flex-col gap-2'>
-          <input type="text" className='w-full p-3 rounded-lg bg-slate-800' placeholder='Enter Name' />
-          <input type="text" className='w-full p-3 rounded-lg bg-slate-800' placeholder='Enter Message' />
+          <input onChange={handlechange} value={paymentform.name} type="text" className='w-full p-3 rounded-lg bg-slate-800' placeholder='Enter Name' />
+          <input onChange={handlechange} value={paymentform.message} type="text" className='w-full p-3 rounded-lg bg-slate-800' placeholder='Enter Message' />
         </div>
         <div className='flex gap-2'>
-          <input type="text" className='w-1/2 p-3 rounded-lg bg-slate-800' placeholder='Enter Amount' />
+          <input onChange={handlechange} value={paymentform.amount} type="text" className='w-1/2 p-3 rounded-lg bg-slate-800' placeholder='Enter Amount' />
           <button type="button" className="text-white bg-gradient-to-br from-purple-800 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center leading-5">Pay</button>
         </div>
         {/* Or choose from these amounts */}
         <div className='flex gap-2 mt-5'>
-          <button type="button" className="text-white bg-gradient-to-br from-purple-500 to-blue-300 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center leading-5">Pay $10</button>
-          <button type="button" className="text-white bg-gradient-to-br from-purple-500 to-blue-300 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center leading-5">Pay $20</button>
-          <button type="button" className="text-white bg-gradient-to-br from-purple-500 to-blue-300 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center leading-5">Pay $20</button>
+          <button type="button" onClick={()=>{pay(1000)}} className="text-white bg-gradient-to-br from-purple-500 to-blue-300 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center leading-5">Pay ₹10</button>
+          <button type="button" onClick={()=>{pay(2000)}} className="text-white bg-gradient-to-br from-purple-500 to-blue-300 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center leading-5">Pay ₹20</button>
+          <button type="button" onClick={()=>{pay(3000)}} className="text-white bg-gradient-to-br from-purple-500 to-blue-300 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center leading-5">Pay ₹20</button>
         </div>
       </div>
     </div>
