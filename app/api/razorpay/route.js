@@ -11,11 +11,11 @@ export const POST = async (req) => {
     // Check razorpay id present in server
     let p = await Payment.findOne({oid: body.razorpay_order_id})
     if(!p){
-        return NextResponse.error("Order id not found")
+        return NextResponse.json({success: false, message: "Order Id not found"})
     }
 
     // verify the payment
-    let xx = validatePaymentVerification({"order_id":body.razorpay_order_id, "razorpay_payment_id":body.razorpay_order_id, "razorpay_signature": body.razorpay_signature}, process.env.RAZORPAY_SECRET)
+    let xx = validatePaymentVerification({"order_id":body.razorpay_order_id, "payment_id":body.razorpay_payment_id}, body.razorpay_signature, process.env.RAZORPAY_SECRET)
 
     if(xx) {
         // Update payment status
@@ -25,6 +25,10 @@ export const POST = async (req) => {
             done: true
         },{new: true});
 
-        return NextResponse.redirect(`${process.env.URL}/${updatedPayment.to_username}?payment=true`)
+        
+
+        return NextResponse.redirect(`${process.env.URL}/${updatedPayment.to_user}?paymentdone=true`)
+    } else {
+        return NextResponse.error("Payment verification failed")
     }
 }

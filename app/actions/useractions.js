@@ -22,10 +22,11 @@ export const initiate = async (amount, to_username, paymentform)=> {
     let pay = await Payment({
         oid: x.id,
         amount: amount,
-        to_username: to_username,
+        to_user: to_username,
         name: paymentform.name,
         message: paymentform.message
-    })
+    });
+    await pay.save()
 
     return x
 }
