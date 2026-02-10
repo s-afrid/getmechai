@@ -1,17 +1,32 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Script from 'next/script'
 import { useSession } from 'next-auth/react'
-import { initiate } from '../actions/useractions'
+import { initiate, fetchpayments, fetchuser } from '../actions/useractions'
 
 const PaymentPage = ({username}) => {
 
   const { data: session } = useSession();
 
   let [paymentform, setPaymentform] = useState({})
+  const [currentUser, setcurrentUser] = useState({})
+  const [Payments, setPayments] = useState([])
+
+  useEffect(()=>{
+    getData();
+  },[])
 
     const handlechange = (e)=>{
       setPaymentform({...paymentform, [e.target.name]: e.target.value})
+    }
+
+    const getData = async () => {
+        let u = await fetchuser(username)
+        setcurrentUser(u)
+        let dbpayments = await fetchpayments(username)
+        setPayments(dbpayments)
+
+        console.log(u, dbpayments)
     }
 
   const pay = async (amount)=> {
@@ -51,9 +66,9 @@ const PaymentPage = ({username}) => {
 
 
 <div className='cover w-full relative'>
-      <img className='object-cover w-full h-[350px]' src="https://c10.patreonusercontent.com/4/patreon-media/p/campaign/812526/fb5da5add2ad4e41bd52d66611e0249c/eyJ3IjoxOTIwLCJ3ZSI6MX0%3D/1.JPG?token-hash=tWU41zyvAnKOa8SWj33OA0_nxl35cBso0nmDNC17CDI%3D&token-time=1770163200" alt="cover" />
+      <img className='object-cover w-full h-[350px]' src="https://img.freepik.com/free-photo/gradient-dark-blue-futuristic-digital-grid-background_53876-129728.jpg?semt=ais_wordcount_boost&w=740&q=80" alt="cover" />
       <div className="profilepic absolute top-[79%] right-[46%] rounded-lg">
-        <img width={150} height={150} className='border-2 border-white rounded-full' src="https://c10.patreonusercontent.com/4/patreon-media/p/campaign/812526/a6d12b5556f149d0aa37df5e76d2be6f/eyJoIjozNjAsInciOjM2MH0%3D/2.JPG?token-hash=EfcYEKOhWRY4UZ9xYojuo-qejcwYT_3WJwjvjWqtLvw%3D&token-time=1769040000" alt="profilepic" />
+        <img width={150} height={150} className='border-2 border-white rounded-full' src="https://img.freepik.com/premium-vector/man-avatar-profile-picture-isolated-background-avatar-profile-picture-man_1293239-4855.jpg" alt="profilepic" />
       </div>
     </div>
 
