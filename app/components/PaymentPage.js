@@ -35,7 +35,7 @@ const PaymentPage = ({username}) => {
       let a = await initiate(amount, username, paymentform)
       let orderId = a.id
         var options = {
-      "key": process.env.NEXT_PUBLIC_RAZORPAY_ID, // Enter the Key ID generated from the Dashboard
+      "key": currentUser.razorpayid, // Enter the Key ID generated from the Dashboard
     "amount": amount, // Amount is in currency subunits. 
     "currency": "INR",
     "name": "Get Me Chai", //your business name
