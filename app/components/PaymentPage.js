@@ -88,6 +88,7 @@ const PaymentPage = ({username}) => {
         {/* Show list of all the supports as a leaderboard */}
         <h2 className='text-2xl font-bold mb-5'>Supporters</h2>
         <ul className='mx-5 text-lg'>
+          {Payments.length == 0 && <li>No payments yet</li>}
           {Payments.map((p,i) => {
               return (
                 <li key={i} className='mb-2 flex gap-2 items-center'>

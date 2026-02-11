@@ -51,7 +51,7 @@ export const updateProfile = async (data, oldusername) => {
             return { error: "Username already exists" }
         }
     }
-    await User.updateOne({email: ndata.email}, ndata)
+    await User.updateOne({email: ndata.email, username: ndata.username}, ndata)
 }
 
 export const fetchpayments = async (username) => {
