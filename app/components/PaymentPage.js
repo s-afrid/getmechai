@@ -66,9 +66,9 @@ const PaymentPage = ({username}) => {
 
 
 <div className='cover w-full relative'>
-      <img className='object-cover w-full h-[350px]' src="https://img.freepik.com/free-photo/gradient-dark-blue-futuristic-digital-grid-background_53876-129728.jpg?semt=ais_wordcount_boost&w=740&q=80" alt="cover" />
-      <div className="profilepic absolute top-[79%] right-[46%] rounded-lg">
-        <img width={150} height={150} className='border-2 border-white rounded-full' src="https://img.freepik.com/premium-vector/man-avatar-profile-picture-isolated-background-avatar-profile-picture-man_1293239-4855.jpg" alt="profilepic" />
+      <img className='object-cover w-full h-[350px]' src={currentUser.coverpic} alt="cover" />
+      <div className="profilepic absolute top-[79%] right-[46%] rounded-full bg-white">
+        <img width={150} height={150} className='border-2 border-white rounded-full' src={currentUser.profilepic} alt="profilepic" />
       </div>
     </div>
 

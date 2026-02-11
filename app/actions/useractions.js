@@ -46,7 +46,7 @@ export const updateProfile = async (data, oldusername) => {
     let ndata = Object.fromEntries(data)
     // if username is being updated check if username is available
     if (oldusername !== ndata.username) {
-        let u = await User.findOne({username: oldusername})
+        let u = await User.findOne({username: ndata.username})
         if (u) {
             return { error: "Username already exists" }
         }

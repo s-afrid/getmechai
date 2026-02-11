@@ -2,19 +2,25 @@
 import React, { useEffect, useState } from 'react'
 import { useSession, signIn, signOut } from "next-auth/react"
 import { useRouter } from 'next/navigation'
+import { updateProfile, fetchuser } from '../actions/useractions'
 
 const Dashboard = () => {
 
-    const { data: session } = useSession();
+    const { data: session, update } = useSession();
       const router = useRouter()
       const [form, setform] = useState({})
     
       useEffect(() => {
+        getData()
         if (!session) {
           router.push('/login')
         } 
       }, [session, router])
 
+      const getData = async () => {
+        let u = await fetchuser(session.user.username)
+        setform(u)
+      }
       
 
         const handleChange = (e) => {
@@ -22,7 +28,9 @@ const Dashboard = () => {
     }
 
     const handleSubmit = async (e) => {
-        console.log(e)
+        
+        let a = await updateProfile(e, session.user.username)
+        alert("Profile updated")
     }
 
   return (

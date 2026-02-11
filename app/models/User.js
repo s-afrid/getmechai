@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import Razorpay from "razorpay";
 const { Schema, model } = mongoose;
 
 const UserSchema = new Schema({
