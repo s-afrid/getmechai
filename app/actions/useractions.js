@@ -9,8 +9,13 @@ import User from "../models/User"
 // initiation
 export const initiate = async (amount, to_username, paymentform)=> {
     await connectDB();
+
+     // fetch razor pay id and secret from database
+    let user = await User.findOne({username: to_username})
+    const id = user.razorpayid
+    const secret = user.razorpaysecret
     
-    var instance = new Razorpay({ key_id: process.env.RAZORPAY_ID, key_secret: process.env.RAZORPAY_SECRET })
+    var instance = new Razorpay({ key_id: id, key_secret: secret })
     let options = {
         amount: Number.parseInt(amount),
         currency: 'INR',
