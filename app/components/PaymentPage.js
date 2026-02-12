@@ -113,10 +113,10 @@ transition={Bounce}
       @{username}
       </div>
       <div className='text-slate-300'>
-        Creating Guitar lessons, YouTube videos, music, and more!
+        Let help {currentUser.name} get a chai!
       </div>
       <div className='text-slate-300'>
-        16,004 members • 758 posts
+        {Payments.length} Payments • ₹{Payments.reduce((a,b)=> a+b.amount, 0)} Raised
       </div>
 
       <div className="payment flex gap-3 w-[80%] mt-11">
