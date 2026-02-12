@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react'
 import Script from 'next/script'
 import { useSession } from 'next-auth/react'
 import { initiate, fetchpayments, fetchuser } from '../actions/useractions'
+import { useSearchParams, useRouter } from 'next/navigation'
+import { ToastContainer, toast, Bounce } from 'react-toastify'
 
 const PaymentPage = ({username}) => {
 
@@ -11,9 +13,28 @@ const PaymentPage = ({username}) => {
   let [paymentform, setPaymentform] = useState({})
   const [currentUser, setcurrentUser] = useState({})
   const [Payments, setPayments] = useState([])
+  const searchParams = useSearchParams()
+  let router = useRouter();
 
   useEffect(()=>{
     getData();
+  },[])
+
+  useEffect(()=>{
+      if (searchParams.get("paymentdone") == "true") {
+        toast.success('Payment has been made', {
+position: "top-right",
+autoClose: 5000,
+hideProgressBar: false,
+closeOnClick: false,
+pauseOnHover: true,
+draggable: true,
+progress: undefined,
+theme: "colored",
+transition: Bounce
+});
+      }
+      router.push(`/${username}`)
   },[])
 
     const handlechange = (e)=>{
@@ -62,6 +83,21 @@ const PaymentPage = ({username}) => {
     }
   return (
     <>
+
+      <ToastContainer
+position="top-right"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick={false}
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="colored"
+transition={Bounce}
+/>
+
       <Script src="https://checkout.razorpay.com/v1/checkout.js"></Script>
 
 
@@ -109,7 +145,7 @@ const PaymentPage = ({username}) => {
         </div>
         <div className='flex gap-2'>
           <input onChange={handlechange} value={paymentform.amount} type="text" className='w-1/2 p-3 rounded-lg bg-slate-800' placeholder='Enter Amount' name="amount" />
-          <button type="button" onClick={()=>{pay(parseFloat(paymentform.amount)*100)}} className="text-white bg-linear-to-br from-purple-800 to-blue-600 hover:bg-linear-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center leading-5">Pay</button>
+          <button type="button" onClick={()=>{pay(parseFloat(paymentform.amount)*100)}} className="text-white bg-linear-to-br from-purple-800 to-blue-600 hover:bg-linear-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center leading-5 disabled:bg-slate-600 disabled:from-slate-600 disabled:to-slate-400" disabled={paymentform.name?.length < 3 || paymentform.message?.length < 4}>Pay</button>
         </div>
         {/* Or choose from these amounts */}
         <div className='flex gap-2 mt-5'>
