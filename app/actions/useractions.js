@@ -21,7 +21,7 @@ export const initiate = async (amount, to_username, paymentform)=> {
     // create a payment object which shows a pending payment in the database
     let pay = new Payment({
         oid: x.id,
-        amount: amount,
+        amount: parseInt(amount/100),
         to_user: to_username,
         name: paymentform.name,
         message: paymentform.message
@@ -57,7 +57,7 @@ export const updateProfile = async (data, oldusername) => {
 export const fetchpayments = async (username) => {
     await connectDB();
     // find all payments in decresing order of amount and flatten object ids
-    let p = await Payment.find({to_user: username}).sort({amount: -1})
+    let p = await Payment.find({to_user: username, done: true}).sort({amount: -1})
     let payments = p.map(doc => doc.toObject({flattenObjectIds: true}))
     return payments
 }

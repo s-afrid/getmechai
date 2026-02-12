@@ -67,8 +67,8 @@ const PaymentPage = ({username}) => {
 
 <div className='cover w-full relative'>
       <img className='object-cover w-full h-[350px]' src={currentUser.coverpic} alt="cover" />
-      <div className="profilepic absolute top-[79%] right-[46%] rounded-full bg-white">
-        <img width={150} height={150} className='border-2 border-white rounded-full' src={currentUser.profilepic} alt="profilepic" />
+      <div className="profilepic absolute top-[79%] right-[46%] overflow-hidden rounded-full bg-white size-32">
+        <img className='border-2 border-white rounded-full size-32 object-contain' src={currentUser.profilepic} alt="profilepic" />
       </div>
     </div>
 
@@ -94,7 +94,7 @@ const PaymentPage = ({username}) => {
                 <li key={i} className='mb-2 flex gap-2 items-center'>
             <img width={33} height={33} src="/avatar.gif" alt="avatar" />
             <span>
-            {p.name} donated <span className='font-bold'>₹{(p.amount)/100}</span> with a message "{p.message}"
+            {p.name} donated <span className='font-bold'>₹{p.amount}</span> with a message "{p.message}"
             </span>
           </li>
               )
