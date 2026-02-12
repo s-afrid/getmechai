@@ -6,6 +6,7 @@ import Payment from "../models/Payment"
 import connectDB from "../db/ConnectDb"
 import User from "../models/User"
 
+
 // initiation
 export const initiate = async (amount, to_username, paymentform)=> {
     await connectDB();
