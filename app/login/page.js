@@ -16,7 +16,7 @@ const page = () => {
 
   return (
     <div className='text-white py-14 container mx-auto'>
-      <h1 className='text-center font-bold text-3xl'>Login/Signup to get support from fans</h1>
+      <h1 className='text-center p-2 font-bold text-3xl'>Login/Signup to get support from fans</h1>
 
       
         <div className="flex flex-col gap-2 w-full items-center min-h-screen p-10">
