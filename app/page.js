@@ -4,11 +4,11 @@ import Link from "next/link";
 export default function Home() {
   return (
     <>
-    <div className="flex flex-col justify-center items-center gap-4 text-white h-[44vh]">
-      <div className="font-bold text-5xl flex gap-4 justify-center items-center">
-        Buy me a Chai <span><img src="/green.gif" width={150} alt="tea" /></span>
+    <div className="flex flex-col justify-center items-center gap-4 text-white h-[60vh] md:h-[44vh]">
+      <div className="font-bold text-3xl md:text-5xl flex gap-4 justify-center items-center">
+        Buy me a Chai <span><img src="/green.gif" className="size-32" alt="tea" /></span>
       </div>
-      <p>
+      <p className="flex gap-4 justify-center items-center p-2 md:p-0 text-center">
         A crowdfunding platform for creators. Get funded by your fans and followers. Start Now!
       </p>
       <div>
@@ -27,26 +27,26 @@ export default function Home() {
     <div className="bg-white h-1 opacity-10"></div>
 
     <div className="text-white container mx-auto pb-14">
-      <h2 className="text-3xl font-bold text-center my-7">Your Fans can buy you a Chai</h2>
+      <h2 className="text-xl md:text-3xl font-bold text-center my-7">Your Fans can buy you a Chai</h2>
     
-      <div className="flex gap-5 justify-around">
+      <div className="flex gap-5 justify-around p-3">
 
         <div className="item space-y-3 flex flex-col items-center justify-center">
-          <img className="bg-slate-200 rounded-full p-2" width={88} src="/worker.gif" alt="man" />
-          <p className="font-bold">Fans want to help</p>
-          <p className="text-center">Your fans are available for you to help you</p>
+          <img className="bg-slate-200 rounded-full p-2 size-15 md:size-20" src="/worker.gif" alt="man" />
+          <p className="font-bold text-sm md:text-lg text-center">Fans want to help</p>
+          <p className="text-center text-[9px]">Your fans are available for you to help you</p>
         </div>
 
         <div className="item space-y-3 flex flex-col items-center justify-center">
-          <img className="bg-slate-200 rounded-full p-2" width={88} src="/dollar.gif" alt="man" />
-          <p className="font-bold">Fans want to help</p>
-          <p className="text-center">Your fans are available for you to help you</p>
+          <img className="bg-slate-200 rounded-full p-2 size-15 md:size-20" src="/dollar.gif" alt="man" />
+          <p className="font-bold text-sm md:text-lg text-center">Fans want to help</p>
+          <p className="text-center text-[9px]">Your fans are available for you to help you</p>
         </div>
 
         <div className="item space-y-3 flex flex-col items-center justify-center">
-          <img className="bg-slate-200 rounded-full p-2" width={88} src="/profit.gif" alt="man" />
-          <p className="font-bold">Fans want to help</p>
-          <p className="text-center">Your fans are available for you to help you</p>
+          <img className="bg-slate-200 rounded-full p-2 size-15 md:size-20" src="/profit.gif" alt="man" />
+          <p className="font-bold text-sm md:text-lg text-center">Fans want to help</p>
+          <p className="text-center text-[9px]">Your fans are available for you to help you</p>
         </div>
       </div>
     </div>
@@ -54,10 +54,10 @@ export default function Home() {
  <div className="bg-white h-1 opacity-10"></div>
 
 
-     <div className="text-white container mx-auto pb-14 flex flex-col items-center justify-center">
-      <h2 className="text-3xl font-bold text-center my-7">Learn more about us</h2>
+     <div className="text-white container mx-auto pb-14 flex flex-col items-center justify-center size-[90%]">
+      <h2 className="text-xl md:text-3xl font-bold text-center my-7">Learn more about us</h2>
     
-     <iframe width="560" height="315" src="https://www.youtube.com/embed/7OojpOilB4s?si=fPlrQgLRTV32BA2h" title="YouTube video player" framebprder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+     <iframe className="size-fit md:w-[90%] md:h-75" src="https://www.youtube.com/embed/7OojpOilB4s?si=fPlrQgLRTV32BA2h" title="YouTube video player" framebprder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
     </div>
     </>
     
