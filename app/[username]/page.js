@@ -22,3 +22,11 @@ if(!user) {
 }
 
 export default Username
+
+export async function generateMetadata({params}) {
+  let getparams = await params
+  let username = getparams.username
+  return {
+    title: `${username}`
+  }
+}

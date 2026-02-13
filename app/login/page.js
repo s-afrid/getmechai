@@ -8,6 +8,7 @@ const page = () => {
   const router = useRouter()
 
   useEffect(() => {
+    document.title = "Login"
     if (session) {
       router.push('/dashboard')
     }
@@ -104,3 +105,5 @@ const page = () => {
 }
 
 export default page
+
+

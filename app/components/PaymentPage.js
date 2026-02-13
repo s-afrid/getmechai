@@ -47,8 +47,6 @@ transition: Bounce
         setcurrentUser(u)
         let dbpayments = await fetchpayments(username)
         setPayments(dbpayments)
-
-        console.log(u, dbpayments)
     }
 
   const pay = async (amount)=> {
