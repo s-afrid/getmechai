@@ -63,7 +63,6 @@ export const updateProfile = async (data, oldusername) => {
 export const fetchpayments = async (username) => {
     await connectDB();
     // find all payments in decresing order of amount and flatten object ids
-    let p = await Payment.find({to_user: username, done: true}).sort({amount: -1})
-    let payments = p.map(doc => doc.toObject({flattenObjectIds: true}))
-    return payments
+    let p = await Payment.find({to_user: username, done: true}).sort({amount: -1}).limit(7).lean();
+    return JSON.parse(JSON.stringify(p))
 }
