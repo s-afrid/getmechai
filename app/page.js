@@ -57,7 +57,7 @@ export default function Home() {
      <div className="text-white container mx-auto pb-14 flex flex-col items-center justify-center size-[90%]">
       <h2 className="text-xl md:text-3xl font-bold text-center my-7">Learn more about us</h2>
     
-     <iframe className="size-fit md:w-[90%] md:h-75" src="https://www.youtube.com/embed/7OojpOilB4s?si=fPlrQgLRTV32BA2h" title="YouTube video player" framebprder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+     <iframe className="size-fit md:w-[50%] md:h-[40vh]" src="https://www.youtube.com/embed/7OojpOilB4s?si=fPlrQgLRTV32BA2h" title="YouTube video player" framebprder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
     </div>
     </>
     

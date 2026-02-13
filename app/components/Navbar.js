@@ -8,7 +8,7 @@ const Navbar = () => {
   const [showdropdown, setshowdropdown] = useState(false)
   
   return (
-    <nav className='bg-gray-900 text-white flex flex-col md:flex-row justify-center gap-5 md:justify-between py-3 md:py-0 px-4 md:h-16 items-center'>
+    <nav className='bg-gray-900 text-white flex justify-between px-4 h-20 md:h-16 items-center'>
         <Link href='/' className="logo font-bold text-lg flex gap-3 items-center justify-center">
           <span>
             <img width={44} src="/tea.png" alt="tea" />
@@ -28,17 +28,24 @@ const Navbar = () => {
         className="text-white cursor-pointer mx-2 bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-full text-sm px-4 py-2.5 text-center inline-flex items-center"
         type="button"
       >
-        Welcome {session.user.name}
-        <svg className="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-          <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
-        </svg>
+        <div className='desktop hidden md:flex justify-center items-center'>
+          Welcome {session.user.name}
+          <svg className="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
+          </svg>
+        </div>
+
+        <div className='block md:hidden'>
+          <svg viewBox="0 0 24 24" width={15} height={15} fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 18L20 18" stroke="#ffffff" strokeWidth="2" strokeLinecap="round"></path> <path d="M4 12L20 12" stroke="#ffffff" strokeWidth="2" strokeLinecap="round"></path> <path d="M4 6L20 6" stroke="#ffffff" strokeWidth="2" strokeLinecap="round"></path> </g></svg>
+        </div>
+
       </button>
 
       {/* ✅ Added onMouseDown here to prevent blur */}
       <div
         id="dropdown"
         onMouseDown={(e) => e.preventDefault()} 
-        className={`z-10 ${showdropdown ? "" : "hidden"} absolute left-[20px] top-[50px] bg-white divide-y divide-gray-100 rounded-lg shadow w-30 dark:bg-gray-700 cursor-pointer`}
+        className={`z-10 ${showdropdown ? "" : "hidden"} absolute right-3 md:left-[20px] top-[50px] bg-white divide-y divide-gray-100 rounded-lg shadow w-30 dark:bg-gray-700 cursor-pointer`}
       >
         <ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
           <li>
